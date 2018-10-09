@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout android:id="@id/TableLayout03" android:background="@drawable/background1" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" >
+    <TableRow android:gravity="center" android:id="@id/TableRow04" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <TableRow android:id="@id/TableRow05" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:id="@id/tv1" android:paddingLeft="10.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" />
+        <TextView android:id="@id/time" android:paddingLeft="10.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" />
+    </TableRow>
+    <TableRow android:gravity="center" android:layout_gravity="center" android:id="@id/TableRow01" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <TableRow android:gravity="center" android:id="@id/TableRow02" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <TableRow android:gravity="center" android:id="@id/TableRow03" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/LinearLayout01" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageButton android:layout_gravity="center" android:id="@id/level1" android:background="@null" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:src="@drawable/level1" />
+            <ImageButton android:layout_gravity="center" android:id="@id/level2" android:background="@null" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:src="@drawable/level2" />
+            <ImageButton android:layout_gravity="center" android:id="@id/level3" android:background="@null" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:src="@drawable/level3" />
+        </LinearLayout>
+    </TableRow>
+</TableLayout>

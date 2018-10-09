@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:title="Planet Sphere Live Wallpaper">
+    <PreferenceCategory android:title="Games">
+        <Preference android:title="@string/set2" android:key="set2" android:summary="@string/set2summary"/>
+        <Preference android:title="@string/set3" android:key="set3" android:summary="@string/set3summary"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Design settings">
+        <Preference android:title="@string/set1" android:key="set1" android:summary="@string/set1summary"/>
+        <Preference android:title="@string/set6" android:key="set6" android:summary="@string/set6summary"/>
+        <Preference android:title="@string/set9" android:key="set9" android:summary="@string/set9summary"/>
+        <Preference android:title="@string/set12" android:key="set12" android:summary="@string/set12summary"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Animation settings">
+        <Preference android:title="@string/set5" android:key="set5" android:summary="@string/set5summary"/>
+        <Preference android:title="@string/set7" android:key="set7" android:summary="@string/set7summary"/>
+        <Preference android:title="@string/set8" android:key="set8" android:summary="@string/set8summary"/>
+        <Preference android:title="@string/set10" android:key="set10" android:summary="@string/set10summary"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Info">
+        <Preference android:title="@string/set4" android:key="set4" android:summary="@string/set4summary"/>
+        <Preference android:title="@string/mobile" android:key="mobile" android:summary="@string/mobilesummary"/>
+        <Preference android:title="@string/about" android:key="about" android:summary="@string/aboutsummary"/>
+    </PreferenceCategory>
+</PreferenceScreen>
