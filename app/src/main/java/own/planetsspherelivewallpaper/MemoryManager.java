@@ -20,7 +20,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -88,7 +87,7 @@ public class MemoryManager extends Activity {
                                 MemoryManager.this.handler.sendEmptyMessage(0);
                             }
                         } catch (Exception e) {
-                            Log.e("E1", e.getMessage());
+                            Log.e(TAG, e.getMessage());
                         }
                     }
                 }, 1300);
@@ -346,7 +345,7 @@ public class MemoryManager extends Activity {
         try {
             int i;
             int size = ROW_COUNT * COL_COUNT;
-            Log.i("loadCards()", "size=" + size);
+            Log.i(TAG, "size=" + size);
             ArrayList<Integer> list = new ArrayList();
             for (i = 0; i < size; i++) {
                 list.add(new Integer(i));
@@ -358,7 +357,7 @@ public class MemoryManager extends Activity {
                     t = r.nextInt(i);
                 }
                 this.cards[i % COL_COUNT][i / COL_COUNT] = ((Integer) list.remove(t)).intValue() % (size / 2);
-                Log.i("loadCards()", "card[" + (i % COL_COUNT) + "][" + (i / COL_COUNT) + "]=" + this.cards[i % COL_COUNT][i / COL_COUNT]);
+                Log.i(TAG, "card[" + (i % COL_COUNT) + "][" + (i / COL_COUNT) + "]=" + this.cards[i % COL_COUNT][i / COL_COUNT]);
             }
         } catch (Exception e) {
             Log.e(TAG, e.getMessage());

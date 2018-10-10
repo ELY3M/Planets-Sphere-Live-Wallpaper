@@ -28,7 +28,7 @@ public class SparkleNumberDialog extends Dialog implements OnClickListener {
     protected final int ScreenHeight = this.Display.getHeight();
     protected final int ScreenWidth = this.Display.getWidth();
     private LinearLayout SeekBarContainer;
-    protected final String TAG = "Planets Sparkle Speed Dial";
+    protected final String TAG = "Planets Sparkle Dial";
     private Bitmap bm_invisible;
     private LinearLayout buttonContainer;
     private ImageButton clock;
@@ -67,7 +67,7 @@ public class SparkleNumberDialog extends Dialog implements OnClickListener {
         public void onDraw(Canvas canvas) {
             SparkleNumberDialog.this.clockX = SparkleNumberDialog.this.xBarValue;
             if (!SparkleNumberDialog.this.moveable && SparkleNumberDialog.this.touchToMove && System.currentTimeMillis() - SparkleNumberDialog.this.touchTime >= 300) {
-                Log.d("Sparkle Speed Dialog", "!moveable");
+                Log.d(TAG, "!moveable");
                 if (!SparkleNumberDialog.this.vibrated) {
                     SparkleNumberDialog.this.vibrator.vibrate(100);
                     SparkleNumberDialog.this.vibrated = true;
@@ -80,19 +80,19 @@ public class SparkleNumberDialog extends Dialog implements OnClickListener {
                 if (event.getAction() == 0 && !SparkleNumberDialog.this.touchToMove) {
                     SparkleNumberDialog.this.touchTime = System.currentTimeMillis();
                     SparkleNumberDialog.this.touchToMove = true;
-                    Log.d("Sparkle Speed Dialog", "down");
+                    Log.d(TAG, "down");
                 }
                 if (SparkleNumberDialog.this.touchToMove && System.currentTimeMillis() - SparkleNumberDialog.this.touchTime >= 300) {
-                    Log.d("Sparkle Speed Dialog", "move");
+                    Log.d(TAG, "move");
                     if (!SparkleNumberDialog.this.moveable && SparkleNumberDialog.this.touchToMove && System.currentTimeMillis() - SparkleNumberDialog.this.touchTime >= 300) {
                         SparkleNumberDialog.this.moveable = true;
                     }
                     if (SparkleNumberDialog.this.moveable && SparkleNumberDialog.this.touchToMove) {
-                        Log.d("Sparkle Speed Dialog", "moveable");
+                        Log.d(TAG, "moveable");
                     }
                 }
                 if (event.getAction() == 1) {
-                    Log.d("Sparkle Speed Dialog", "up");
+                    Log.d(TAG, "up");
                     SparkleNumberDialog.this.touchToMove = false;
                     SparkleNumberDialog.this.moveable = false;
                     SparkleNumberDialog.this.vibrated = false;
@@ -118,7 +118,7 @@ public class SparkleNumberDialog extends Dialog implements OnClickListener {
         super(context);
         Context context2 = getContext();
         getContext();
-        this.vibrator = (Vibrator) context2.getSystemService("vibrator");
+        this.vibrator = (Vibrator) context2.getSystemService(Context.VIBRATOR_SERVICE);
         this.handLayout = new LinearLayout(getContext());
         this.positionViewContainer = new RelativeLayout(getContext());
         this.positionView = new PositionView(getContext());
@@ -155,7 +155,7 @@ public class SparkleNumberDialog extends Dialog implements OnClickListener {
     private void buildPortraitUI() {
         this.handLayout.setLayoutParams(new LayoutParams(-2, -2));
         this.handLayout.setGravity(1);
-        this.handLayout.setOrientation(1);
+        this.handLayout.setOrientation(LinearLayout.VERTICAL); //was 1
         this.handLayout.setPadding(10, 0, 10, 10);
         this.tx_xBar.setText(R.string.set8summary);
         this.tx_xBar.setPadding(10, 0, 0, 0);
@@ -167,11 +167,11 @@ public class SparkleNumberDialog extends Dialog implements OnClickListener {
         this.xBar.setProgress(IndividualWallpaperService.sparkleNumberValue);
         this.xBar.setPadding(5, 0, 5, 0);
         this.xBarContainer.setLayoutParams(params);
-        this.xBarContainer.setOrientation(1);
+        this.xBarContainer.setOrientation(LinearLayout.VERTICAL); //was 1
         this.xBarContainer.addView(this.tx_xBar);
         this.xBarContainer.addView(this.xBar);
         this.SeekBarContainer.setLayoutParams(new LayoutParams(-1, -2));
-        this.SeekBarContainer.setOrientation(0);
+        this.SeekBarContainer.setOrientation(LinearLayout.HORIZONTAL); //was 0
         this.SeekBarContainer.setPadding(0, 0, 0, 10);
         this.SeekBarContainer.addView(this.xBarContainer);
         this.ok_btn.setLayoutParams(params);
@@ -181,7 +181,7 @@ public class SparkleNumberDialog extends Dialog implements OnClickListener {
         this.default_btn.setText(R.string.Default);
         this.default_btn.setOnClickListener(this);
         this.buttonContainer.setLayoutParams(new LayoutParams(-1, -2));
-        this.buttonContainer.setOrientation(0);
+        this.buttonContainer.setOrientation(LinearLayout.HORIZONTAL); //was 0
         this.buttonContainer.addView(this.default_btn);
         this.buttonContainer.addView(this.ok_btn);
         this.enlargeView.setLayoutParams(new LayoutParams(-2, -2));

@@ -14,6 +14,7 @@ import android.widget.TextView;
 import java.util.Random;
 
 public class Question extends Activity {
+    String TAG = "Planets Question";
     public static Context context;
     static int score;
     ImageView frage;
@@ -322,7 +323,7 @@ public class Question extends Activity {
 
     private void getRandomQuestion(ImageView q, TextView t1, int right) {
         int randomint = new Random().nextInt(21);
-        Log.d("", "frage1" + randomint);
+        Log.d(TAG, "frage1" + randomint);
         switch (randomint) {
             case 0:
                 q.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.frage1));

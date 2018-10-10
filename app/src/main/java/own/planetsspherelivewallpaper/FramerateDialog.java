@@ -28,7 +28,7 @@ public class FramerateDialog extends Dialog implements OnClickListener {
     protected final int ScreenHeight = this.Display.getHeight();
     protected final int ScreenWidth = this.Display.getWidth();
     private LinearLayout SeekBarContainer;
-    protected final String TAG = "Planets Framerate Dialog";
+    protected final String TAG = "Planets Framerate Dial";
     private Bitmap bm_invisible;
     private LinearLayout buttonContainer;
     private ImageButton clock;
@@ -67,7 +67,7 @@ public class FramerateDialog extends Dialog implements OnClickListener {
         public void onDraw(Canvas canvas) {
             FramerateDialog.this.clockX = FramerateDialog.this.xBarValue;
             if (!FramerateDialog.this.moveable && FramerateDialog.this.touchToMove && System.currentTimeMillis() - FramerateDialog.this.touchTime >= 300) {
-                Log.d("Framerate Dialog", "!moveable");
+                Log.d(TAG, "!moveable");
                 if (!FramerateDialog.this.vibrated) {
                     FramerateDialog.this.vibrator.vibrate(100);
                     FramerateDialog.this.vibrated = true;
@@ -80,19 +80,19 @@ public class FramerateDialog extends Dialog implements OnClickListener {
                 if (event.getAction() == 0 && !FramerateDialog.this.touchToMove) {
                     FramerateDialog.this.touchTime = System.currentTimeMillis();
                     FramerateDialog.this.touchToMove = true;
-                    Log.d("Framerate Dialog", "down");
+                    Log.d(TAG, "down");
                 }
                 if (FramerateDialog.this.touchToMove && System.currentTimeMillis() - FramerateDialog.this.touchTime >= 300) {
-                    Log.d("Framerate Dialog", "move");
+                    Log.d(TAG, "move");
                     if (!FramerateDialog.this.moveable && FramerateDialog.this.touchToMove && System.currentTimeMillis() - FramerateDialog.this.touchTime >= 300) {
                         FramerateDialog.this.moveable = true;
                     }
                     if (FramerateDialog.this.moveable && FramerateDialog.this.touchToMove) {
-                        Log.d("Framerate Dialog", "moveable");
+                        Log.d(TAG, "moveable");
                     }
                 }
                 if (event.getAction() == 1) {
-                    Log.d("Framerate Dialog", "up");
+                    Log.d(TAG, "up");
                     FramerateDialog.this.touchToMove = false;
                     FramerateDialog.this.moveable = false;
                     FramerateDialog.this.vibrated = false;

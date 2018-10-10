@@ -67,7 +67,7 @@ public class SpeedDialog extends Dialog implements OnClickListener {
         public void onDraw(Canvas canvas) {
             SpeedDialog.this.clockX = SpeedDialog.this.xBarValue;
             if (!SpeedDialog.this.moveable && SpeedDialog.this.touchToMove && System.currentTimeMillis() - SpeedDialog.this.touchTime >= 300) {
-                Log.d("Speed Dialog", "!moveable");
+                Log.d(TAG, "!moveable");
                 if (!SpeedDialog.this.vibrated) {
                     SpeedDialog.this.vibrator.vibrate(100);
                     SpeedDialog.this.vibrated = true;
@@ -80,19 +80,19 @@ public class SpeedDialog extends Dialog implements OnClickListener {
                 if (event.getAction() == 0 && !SpeedDialog.this.touchToMove) {
                     SpeedDialog.this.touchTime = System.currentTimeMillis();
                     SpeedDialog.this.touchToMove = true;
-                    Log.d("Speed Dialog", "down");
+                    Log.d(TAG, "down");
                 }
                 if (SpeedDialog.this.touchToMove && System.currentTimeMillis() - SpeedDialog.this.touchTime >= 300) {
-                    Log.d("Speed Dialog", "move");
+                    Log.d(TAG, "move");
                     if (!SpeedDialog.this.moveable && SpeedDialog.this.touchToMove && System.currentTimeMillis() - SpeedDialog.this.touchTime >= 300) {
                         SpeedDialog.this.moveable = true;
                     }
                     if (SpeedDialog.this.moveable && SpeedDialog.this.touchToMove) {
-                        Log.d("Speed Dialog", "moveable");
+                        Log.d(TAG, "moveable");
                     }
                 }
                 if (event.getAction() == 1) {
-                    Log.d("Speed Dialog", "up");
+                    Log.d(TAG, "up");
                     SpeedDialog.this.touchToMove = false;
                     SpeedDialog.this.moveable = false;
                     SpeedDialog.this.vibrated = false;
