@@ -58,6 +58,8 @@ public class MemoryManager extends Activity {
 
     String TAG = "Planets MemoryManager";
 
+    /* Memeory Card Game  */
+
     class ButtonListener implements OnClickListener {
         ButtonListener() {
         }

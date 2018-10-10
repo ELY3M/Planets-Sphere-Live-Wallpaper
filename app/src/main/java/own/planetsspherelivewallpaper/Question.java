@@ -30,6 +30,8 @@ public class Question extends Activity {
     RadioButton three;
     RadioButton two;
 
+    /* Planets Question Game  */
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.questioncounter = 0;
