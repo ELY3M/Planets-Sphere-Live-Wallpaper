@@ -57,7 +57,7 @@ public class Question extends Activity {
                 Question.this.one.setChecked(true);
                 Question.this.two.setClickable(false);
                 Question.this.three.setClickable(false);
-                Question.this.test1.setVisibility(0);
+                Question.this.test1.setVisibility(View.VISIBLE);
                 if (Question.this.rightanswer == 1) {
                     Question.this.textone.setTextColor(Disc.DefaultLightColor);
                 } else {
@@ -70,7 +70,7 @@ public class Question extends Activity {
                 Question.this.two.setChecked(true);
                 Question.this.one.setClickable(false);
                 Question.this.three.setClickable(false);
-                Question.this.test1.setVisibility(0);
+                Question.this.test1.setVisibility(View.VISIBLE);
                 if (Question.this.rightanswer == 2) {
                     Question.this.texttwo.setTextColor(Disc.DefaultLightColor);
                 } else {
@@ -83,7 +83,7 @@ public class Question extends Activity {
                 Question.this.three.setChecked(true);
                 Question.this.two.setClickable(false);
                 Question.this.one.setClickable(false);
-                Question.this.test1.setVisibility(0);
+                Question.this.test1.setVisibility(View.VISIBLE);
                 if (Question.this.rightanswer == 3) {
                     Question.this.textthree.setTextColor(Disc.DefaultLightColor);
                 } else {
@@ -111,7 +111,7 @@ public class Question extends Activity {
     private void startGame() {
         setRandomText(this.frage, this.textone, this.texttwo, this.textthree);
         this.set = false;
-        this.test1.setVisibility(0);
+        this.test1.setVisibility(View.VISIBLE);
         this.one.setClickable(true);
         this.two.setClickable(true);
         this.three.setClickable(true);

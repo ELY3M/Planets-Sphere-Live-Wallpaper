@@ -81,21 +81,21 @@ public class MemoryErgebnisDialog extends Activity {
             e.printStackTrace();
         }
 
-        counter = Integer.parseInt(myscore);
-        Log.d(TAG, "COUNTER Firts" + counter);
+        this.counter = Integer.parseInt(myscore);
+        Log.d(TAG, "COUNTER Firts" + this.counter);
         setContentView(R.layout.finish);
         TextView ergebnis = (TextView) findViewById(R.id.ergebnis);
         TextView maybe = (TextView) findViewById(R.id.ergebnismaybe);
         TextView featuretext = (TextView) findViewById(R.id.featuretext);
-        featurefirst = getLevel(counter);
-        memoryscore = MemoryManager.score / 110;
-        ergebnis.setText("Yeah, you have earned " + memoryscore + " points.");
-        counter += memoryscore;
-        maybe.setText("Your actual Score is " + counter + " points.");
-        int stringnew = counter;
-        featurelast = getLevel(counter);
-        if (featurelast > featurefirst) {
-            featuretext.setText("You've unlocked a new feature: " + feature);
+        this.featurefirst = getLevel(this.counter);
+        this.memoryscore = MemoryManager.score / 110;
+        ergebnis.setText("Yeah, you have earned " + this.memoryscore + " points.");
+        this.counter += this.memoryscore;
+        maybe.setText("Your actual Score is " + this.counter + " points.");
+        int stringnew = this.counter;
+        this.featurelast = getLevel(this.counter);
+        if (this.featurelast > this.featurefirst) {
+            featuretext.setText("You've unlocked a new feature: " + this.feature);
         }
         Log.d(TAG, "COUNTER LAST" + stringnew);
 
@@ -139,9 +139,8 @@ public class MemoryErgebnisDialog extends Activity {
             e2.printStackTrace();
         }
 
-
-        ende = findViewById(R.id.back);
-        ende.setOnClickListener(new OnClickListener() {
+        this.ende = (ImageButton) findViewById(R.id.back);
+        this.ende.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 if (v == MemoryErgebnisDialog.this.ende) {
                     MemoryErgebnisDialog.this.startActivity(new Intent(MemoryErgebnisDialog.this, MemoryManager.class));
@@ -160,7 +159,7 @@ public class MemoryErgebnisDialog extends Activity {
         }
         for (i = 0; i < features.length; i++) {
             if (v < list[i]) {
-                feature = features[i - 1];
+                this.feature = features[i - 1];
                 return i + 1;
             }
         }

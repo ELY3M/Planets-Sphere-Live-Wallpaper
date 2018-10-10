@@ -200,7 +200,6 @@
     <public type="string" name="opentext6" id="0x7f05006a" />
     <public type="array" name="feature" id="0x7f060000" />
     <public type="array" name="featurevalue" id="0x7f060001" />
-    <public type="id" name="adView" id="0x7f070000" />
     <public type="id" name="defaultd" id="0x7f070001" />
     <public type="id" name="ende" id="0x7f070002" />
     <public type="id" name="ergebnis" id="0x7f070003" />

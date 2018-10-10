@@ -77,29 +77,29 @@ public class FinishDialog extends Dialog implements OnClickListener {
             e.printStackTrace();
         }
 
-        counter = Integer.parseInt(myscore);
+        this.counter = Integer.parseInt(myscore);
         Log.d(TAG, "COUNTER Firts" + counter);
         setContentView(R.layout.finish);
-        TextView ergebnis = findViewById(R.id.ergebnis);
-        TextView maybe = findViewById(R.id.ergebnismaybe);
-        TextView featuretext = findViewById(R.id.featuretext);
-        featurefirst = getLevel(counter);
+        TextView ergebnis = (TextView) findViewById(R.id.ergebnis);
+        TextView maybe = (TextView) findViewById(R.id.ergebnismaybe);
+        TextView featuretext = (TextView) findViewById(R.id.featuretext);
+        this.featurefirst = getLevel(this.counter);
         if (Question.score > 6) {
             ergebnis.setText(context.getString(R.string.highscoreanswer1));
-            counter += 5;
+            this.counter += 5;
         } else if (Question.score > 5) {
             ergebnis.setText(context.getString(R.string.highscoreanswer2));
-            counter += 2;
+            this.counter += 2;
         } else {
             ergebnis.setText(context.getString(R.string.highscoreanswer3));
-            counter++;
+            this.counter++;
         }
         Question.score = 0;
-        maybe.setText("Your actual Score is " + counter + " points.");
-        int stringnew = counter;
-        featurelast = getLevel(counter);
-        if (featurelast > featurefirst) {
-            featuretext.setText("You've unlocked a new feature: " + feature);
+        maybe.setText("Your actual Score is " + this.counter + " points.");
+        int stringnew = this.counter;
+        this.featurelast = getLevel(this.counter);
+        if (this.featurelast > this.featurefirst) {
+            featuretext.setText("You've unlocked a new feature: " + this.feature);
         }
         Log.d(TAG, "COUNTER LAST" + stringnew);
 
@@ -142,8 +142,8 @@ public class FinishDialog extends Dialog implements OnClickListener {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        ende = findViewById(R.id.back);
-        ende.setOnClickListener(this);
+        this.ende = (ImageButton) findViewById(R.id.back);
+        this.ende.setOnClickListener(this);
     }
 
     private int getLevel(int v) {
@@ -170,7 +170,7 @@ public class FinishDialog extends Dialog implements OnClickListener {
     }
 
     public void onClick(View v) {
-        if (v == ende) {
+        if (v == this.ende) {
             dismiss();
         }
     }

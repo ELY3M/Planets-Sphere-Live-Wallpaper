@@ -108,8 +108,8 @@ public class MemoryManager extends Activity {
 
         public void checkCards() {
             if (MemoryManager.this.cards[MemoryManager.this.seconedCard.x][MemoryManager.this.seconedCard.y] == MemoryManager.this.cards[MemoryManager.this.firstCard.x][MemoryManager.this.firstCard.y]) {
-                MemoryManager.this.firstCard.button.setVisibility(4);
-                MemoryManager.this.seconedCard.button.setVisibility(4);
+                MemoryManager.this.firstCard.button.setVisibility(View.INVISIBLE);
+                MemoryManager.this.seconedCard.button.setVisibility(View.INVISIBLE);
                 MemoryManager.this.cardcheck[MemoryManager.this.seconedCard.x][MemoryManager.this.seconedCard.y] = false;
                 MemoryManager.this.cardcheck[MemoryManager.this.firstCard.x][MemoryManager.this.firstCard.y] = false;
                 MemoryManager memoryManager = MemoryManager.this;
@@ -250,6 +250,9 @@ public class MemoryManager extends Activity {
         ROW_COUNT = r;
         COL_COUNT = c;
         long start = SystemClock.uptimeMillis();
+
+        ///TODO This is bug!!!  smashing images.....
+        /*
         if (c > 3) {
             loadImages();
             this.backImage = getResources().getDrawable(R.drawable.memoryicon1);
@@ -257,6 +260,11 @@ public class MemoryManager extends Activity {
             loadImages2();
             this.backImage = getResources().getDrawable(R.drawable.memoryicon2);
         }
+        */
+
+        loadImages2();
+        this.backImage = getResources().getDrawable(R.drawable.memoryicon2);
+
         this.cards = (int[][]) Array.newInstance(Integer.TYPE, new int[]{COL_COUNT, ROW_COUNT});
         this.cardcheck = (boolean[][]) Array.newInstance(Boolean.TYPE, new int[]{COL_COUNT, ROW_COUNT});
         for (int i = 0; i < COL_COUNT; i++) {
@@ -353,7 +361,7 @@ public class MemoryManager extends Activity {
                 Log.i("loadCards()", "card[" + (i % COL_COUNT) + "][" + (i / COL_COUNT) + "]=" + this.cards[i % COL_COUNT][i / COL_COUNT]);
             }
         } catch (Exception e) {
-            Log.e("loadCards()", e.getMessage());
+            Log.e(TAG, e.getMessage());
         }
     }
 

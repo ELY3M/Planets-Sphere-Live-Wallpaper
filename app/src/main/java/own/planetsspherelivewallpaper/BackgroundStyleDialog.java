@@ -14,8 +14,13 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+
+/*
+*
+* Background setting
+*
+* */
 
 public class BackgroundStyleDialog extends Dialog implements OnClickListener {
     public static final int Leer = 2130837548;
@@ -109,10 +114,10 @@ public class BackgroundStyleDialog extends Dialog implements OnClickListener {
             case R.drawable.background3:
                 this.lights.check(this.lightThree.getId());
                 break;
-            case R.drawable.element4:
+            case R.drawable.backgroundstarry:
                 this.lights.check(this.lightFour.getId());
                 break;
-            case R.drawable.element5:
+            case R.drawable.backgroundmoon:
                 this.lights.check(this.lightFive.getId());
                 break;
             case R.drawable.element6:
@@ -124,21 +129,29 @@ public class BackgroundStyleDialog extends Dialog implements OnClickListener {
         }
         this.lightOne.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.background1icon, 0);
         this.lightOne.setOnClickListener(this);
+
         if (this.score >= 480) {
             this.lightTwo.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.background2icon, 0);
             this.lightTwo.setOnClickListener(this);
         } else {
             this.lightTwo.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.leericon, 0);
         }
+
         if (this.score >= 1345) {
             this.lightThree.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.background3icon, 0);
             this.lightThree.setOnClickListener(this);
         } else {
             this.lightThree.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.leericon, 0);
         }
-        this.lightFour.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.leericon, 0);
-        this.lightFive.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.leericon, 0);
+
+        this.lightFour.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.backgroundstarryicon, 0);
+        this.lightFour.setOnClickListener(this);
+
+        this.lightFive.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.backgroundmoonicon, 0);
+        this.lightFive.setOnClickListener(this);
+
         this.lightSix.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.leericon, 0);
+        //lightSix.setOnClickListener(this);
     }
 
     public void onClick(View v) {
@@ -185,9 +198,9 @@ public class BackgroundStyleDialog extends Dialog implements OnClickListener {
             this.lightFour.setChecked(true);
             this.lightFive.setChecked(false);
             this.lightSix.setChecked(false);
-            IndividualWallpaperService.prefEditor.putInt(IndividualWallpaperService.BackgroundValueKey, R.drawable.element4);
+            IndividualWallpaperService.prefEditor.putInt(IndividualWallpaperService.BackgroundValueKey, R.drawable.backgroundstarry);
             IndividualWallpaperService.prefEditor.commit();
-            IndividualWallpaperService.backgroundValue = IndividualWallpaperService.prefs.getInt(IndividualWallpaperService.BackgroundValueKey, R.drawable.element4);
+            IndividualWallpaperService.backgroundValue = IndividualWallpaperService.prefs.getInt(IndividualWallpaperService.BackgroundValueKey, R.drawable.backgroundstarry);
             dismiss();
         }
         if (v == this.lightFive) {
@@ -197,9 +210,9 @@ public class BackgroundStyleDialog extends Dialog implements OnClickListener {
             this.lightFour.setChecked(false);
             this.lightFive.setChecked(true);
             this.lightSix.setChecked(false);
-            IndividualWallpaperService.prefEditor.putInt(IndividualWallpaperService.BackgroundValueKey, R.drawable.element5);
+            IndividualWallpaperService.prefEditor.putInt(IndividualWallpaperService.BackgroundValueKey, R.drawable.backgroundmoon);
             IndividualWallpaperService.prefEditor.commit();
-            IndividualWallpaperService.backgroundValue = IndividualWallpaperService.prefs.getInt(IndividualWallpaperService.BackgroundValueKey, R.drawable.element5);
+            IndividualWallpaperService.backgroundValue = IndividualWallpaperService.prefs.getInt(IndividualWallpaperService.BackgroundValueKey, R.drawable.backgroundmoon);
             dismiss();
         }
         if (v == this.lightSix) {

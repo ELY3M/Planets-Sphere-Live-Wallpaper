@@ -25,8 +25,8 @@ import android.widget.TextView;
 
 public class SparkleNumberDialog extends Dialog implements OnClickListener {
     protected final Display Display = ((WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
-    protected final int ScreenHeight = Display.getHeight();
-    protected final int ScreenWidth = Display.getWidth();
+    protected final int ScreenHeight = this.Display.getHeight();
+    protected final int ScreenWidth = this.Display.getWidth();
     private LinearLayout SeekBarContainer;
     protected final String TAG = "Planets Sparkle Speed Dial";
     private Bitmap bm_invisible;
@@ -106,11 +106,11 @@ public class SparkleNumberDialog extends Dialog implements OnClickListener {
         }
 
         public void onStartTrackingTouch(SeekBar arg0) {
-            onDraw(canvas);
+            onDraw(this.canvas);
         }
 
         public void onStopTrackingTouch(SeekBar arg0) {
-            onDraw(canvas);
+            onDraw(this.canvas);
         }
     }
 
@@ -118,97 +118,97 @@ public class SparkleNumberDialog extends Dialog implements OnClickListener {
         super(context);
         Context context2 = getContext();
         getContext();
-        vibrator = (Vibrator) context2.getSystemService(Context.VIBRATOR_SERVICE);
-        handLayout = new LinearLayout(getContext());
-        positionViewContainer = new RelativeLayout(getContext());
-        positionView = new PositionView(getContext());
-        clock = new ImageButton(getContext());
-        SeekBarContainer = new LinearLayout(getContext());
-        xBarContainer = new LinearLayout(getContext());
-        tx_xBar = new TextView(getContext());
-        xBar = new SeekBar(getContext());
-        buttonContainer = new LinearLayout(getContext());
-        ok_btn = new Button(getContext());
-        default_btn = new Button(getContext());
-        invisible = new ImageView(getContext());
-        enlargeView = new RelativeLayout(getContext());
-        touchToMove = false;
-        moveable = false;
-        vibrated = false;
+        this.vibrator = (Vibrator) context2.getSystemService("vibrator");
+        this.handLayout = new LinearLayout(getContext());
+        this.positionViewContainer = new RelativeLayout(getContext());
+        this.positionView = new PositionView(getContext());
+        this.clock = new ImageButton(getContext());
+        this.SeekBarContainer = new LinearLayout(getContext());
+        this.xBarContainer = new LinearLayout(getContext());
+        this.tx_xBar = new TextView(getContext());
+        this.xBar = new SeekBar(getContext());
+        this.buttonContainer = new LinearLayout(getContext());
+        this.ok_btn = new Button(getContext());
+        this.default_btn = new Button(getContext());
+        this.invisible = new ImageView(getContext());
+        this.enlargeView = new RelativeLayout(getContext());
+        this.touchToMove = false;
+        this.moveable = false;
+        this.vibrated = false;
         getDefaultValues();
-        clockX = defaultX;
+        this.clockX = this.defaultX;
         setTitle(R.string.set8);
-        xSeekBarRange = 250;
-        if (ScreenHeight > ScreenWidth) {
-            portraitMode = true;
+        this.xSeekBarRange = 250;
+        if (this.ScreenHeight > this.ScreenWidth) {
+            this.portraitMode = true;
         } else {
-            portraitMode = false;
+            this.portraitMode = false;
         }
-        if (portraitMode) {
-            xSeekBarRange = 250;
+        if (this.portraitMode) {
+            this.xSeekBarRange = 250;
             buildPortraitUI();
             return;
         }
-        xSeekBarRange = ScreenWidth / 8;
+        this.xSeekBarRange = this.ScreenWidth / 8;
     }
 
     private void buildPortraitUI() {
-        handLayout.setLayoutParams(new LayoutParams(-2, -2));
-        handLayout.setGravity(1);
-        handLayout.setOrientation(LinearLayout.VERTICAL);
-        handLayout.setPadding(10, 0, 10, 10);
-        tx_xBar.setText(R.string.set8summary);
-        tx_xBar.setPadding(10, 0, 0, 0);
+        this.handLayout.setLayoutParams(new LayoutParams(-2, -2));
+        this.handLayout.setGravity(1);
+        this.handLayout.setOrientation(1);
+        this.handLayout.setPadding(10, 0, 10, 10);
+        this.tx_xBar.setText(R.string.set8summary);
+        this.tx_xBar.setPadding(10, 0, 0, 0);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(-1, -2);
         params.weight = 1.0f;
-        xBar.setLayoutParams(params);
-        xBar.setOnSeekBarChangeListener(positionView);
-        xBar.setMax(xSeekBarRange);
-        xBar.setProgress(IndividualWallpaperService.sparkleNumberValue);
-        xBar.setPadding(5, 0, 5, 0);
-        xBarContainer.setLayoutParams(params);
-        xBarContainer.setOrientation(LinearLayout.VERTICAL);
-        xBarContainer.addView(tx_xBar);
-        xBarContainer.addView(xBar);
-        SeekBarContainer.setLayoutParams(new LayoutParams(-1, -2));
-        SeekBarContainer.setOrientation(LinearLayout.HORIZONTAL);
-        SeekBarContainer.setPadding(0, 0, 0, 10);
-        SeekBarContainer.addView(xBarContainer);
-        ok_btn.setLayoutParams(params);
-        ok_btn.setText(R.string.ok);
-        ok_btn.setOnClickListener(this);
-        default_btn.setLayoutParams(params);
-        default_btn.setText(R.string.Default);
-        default_btn.setOnClickListener(this);
-        buttonContainer.setLayoutParams(new LayoutParams(-1, -2));
-        buttonContainer.setOrientation(LinearLayout.HORIZONTAL);
-        buttonContainer.addView(default_btn);
-        buttonContainer.addView(ok_btn);
-        enlargeView.setLayoutParams(new LayoutParams(-2, -2));
-        enlargeView.addView(invisible);
-        enlargeView.addView(buttonContainer);
-        handLayout.addView(positionViewContainer);
-        handLayout.addView(SeekBarContainer);
-        handLayout.addView(enlargeView);
-        setContentView(handLayout);
+        this.xBar.setLayoutParams(params);
+        this.xBar.setOnSeekBarChangeListener(this.positionView);
+        this.xBar.setMax(this.xSeekBarRange);
+        this.xBar.setProgress(IndividualWallpaperService.sparkleNumberValue);
+        this.xBar.setPadding(5, 0, 5, 0);
+        this.xBarContainer.setLayoutParams(params);
+        this.xBarContainer.setOrientation(1);
+        this.xBarContainer.addView(this.tx_xBar);
+        this.xBarContainer.addView(this.xBar);
+        this.SeekBarContainer.setLayoutParams(new LayoutParams(-1, -2));
+        this.SeekBarContainer.setOrientation(0);
+        this.SeekBarContainer.setPadding(0, 0, 0, 10);
+        this.SeekBarContainer.addView(this.xBarContainer);
+        this.ok_btn.setLayoutParams(params);
+        this.ok_btn.setText(R.string.ok);
+        this.ok_btn.setOnClickListener(this);
+        this.default_btn.setLayoutParams(params);
+        this.default_btn.setText(R.string.Default);
+        this.default_btn.setOnClickListener(this);
+        this.buttonContainer.setLayoutParams(new LayoutParams(-1, -2));
+        this.buttonContainer.setOrientation(0);
+        this.buttonContainer.addView(this.default_btn);
+        this.buttonContainer.addView(this.ok_btn);
+        this.enlargeView.setLayoutParams(new LayoutParams(-2, -2));
+        this.enlargeView.addView(this.invisible);
+        this.enlargeView.addView(this.buttonContainer);
+        this.handLayout.addView(this.positionViewContainer);
+        this.handLayout.addView(this.SeekBarContainer);
+        this.handLayout.addView(this.enlargeView);
+        setContentView(this.handLayout);
     }
 
     public void onClick(View v) {
-        if (v == ok_btn) {
+        if (v == this.ok_btn) {
             IndividualWallpaperService.prefEditor.putInt(IndividualWallpaperService.SparkleNumberValueKey, IndividualWallpaperService.sparkleNumberValue);
             IndividualWallpaperService.prefEditor.commit();
             IndividualWallpaperService.sparkleNumberValue = IndividualWallpaperService.prefs.getInt(IndividualWallpaperService.SparkleNumberValueKey, 30);
             dismiss();
         }
-        if (v == default_btn) {
+        if (v == this.default_btn) {
             IndividualWallpaperService.sparkleNumberValue = 30;
-            clockX = defaultX;
-            xBarValue = 30;
-            xBar.setProgress(IndividualWallpaperService.sparkleNumberValue);
+            this.clockX = this.defaultX;
+            this.xBarValue = 30;
+            this.xBar.setProgress(IndividualWallpaperService.sparkleNumberValue);
         }
     }
 
     private void getDefaultValues() {
-        defaultX = 2;
+        this.defaultX = 2;
     }
 }

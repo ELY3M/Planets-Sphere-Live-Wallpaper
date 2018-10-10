@@ -80,6 +80,7 @@ public class IndividualWallpaperService extends LiveWallpaper implements OnShare
     private Display Display;
     public final String TAG = "Planets Ind Wallpapers";
     Bitmap background;
+    Bitmap backgroundresized;
     private Disc disc;
     Resources res;
 
@@ -228,7 +229,9 @@ public class IndividualWallpaperService extends LiveWallpaper implements OnShare
     protected void paint(Canvas c) {
         Paint p1 = new Paint();
         this.background = BitmapFactory.decodeResource(getResources(), backgroundValue);
-        c.drawBitmap(this.background, 0.0f, 0.0f, p1);
+        //TODO resize background to match screen size!
+        this.backgroundresized = Bitmap.createScaledBitmap(this.background, ScreenWidth, ScreenHeight, false);
+        c.drawBitmap(this.backgroundresized, 0.0f, 0.0f, p1);
         this.disc.paint(c);
     }
 

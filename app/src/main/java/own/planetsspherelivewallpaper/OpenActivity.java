@@ -12,53 +12,40 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
-import com.master.permissionhelper.PermissionHelper;
-
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.single.PermissionListener;
+
 
 public class OpenActivity extends Activity {
     private int REQUEST_CODE = 1;
     Context context;
     String punktestand = "";
     String TAG = "Planets openactivity";
-    PermissionHelper permissionHelper;
 
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.open);
 
 
-
-        permissionHelper = new PermissionHelper(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 100);
-        permissionHelper.request(new PermissionHelper.PermissionCallback() {
-            @Override
-            public void onPermissionGranted() {
-                Log.d(TAG, "onPermissionGranted() called");
-            }
-
-            @Override
-            public void onIndividualPermissionGranted(String[] grantedPermission) {
-                Log.d(TAG, "onIndividualPermissionGranted() called with: grantedPermission = [" + TextUtils.join(",",grantedPermission) + "]");
-            }
-
-            @Override
-            public void onPermissionDenied() {
-                Log.d(TAG, "onPermissionDenied() called");
-            }
-
-            @Override
-            public void onPermissionDeniedBySystem() {
-                Log.d(TAG, "onPermissionDeniedBySystem() called");
-            }
-        });
+        //stupid perm//
+        Dexter.withActivity(this)
+                .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .withListener(new PermissionListener() {
+                    @Override public void onPermissionGranted(PermissionGrantedResponse response) { Log.i(TAG, "perm granted :)"); }
+                    @Override public void onPermissionDenied(PermissionDeniedResponse response) { Log.i(TAG, "perm denied :("); }
+                    @Override public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) { Log.i(TAG, "asking for perm"); }
+                }).check();
 
 
         ((ImageButton) findViewById(R.id.lwpgallery)).setOnClickListener(new OnClickListener() {
@@ -128,34 +115,10 @@ public class OpenActivity extends Activity {
             e.printStackTrace();
         }
 
-        /*
-        try {
-            Log.i(TAG, "trying to open "+Constants.scorefilepath);
-            BufferedReader input = new BufferedReader(new InputStreamReader(openFileInput(Constants.scorefilepath)));
-            StringBuffer buffer = new StringBuffer();
-            while (true) {
-                String line = input.readLine();
-                if (line == null) {
-                    myscore = buffer.toString();
-                    break;
-                }
-                buffer.append(line);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        */
+
         this.punktestand = myscore;
         ((TextView) findViewById(R.id.openscore)).setText(myscore);
     }
 
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (permissionHelper != null) {
-            permissionHelper.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
-    }
 
 }

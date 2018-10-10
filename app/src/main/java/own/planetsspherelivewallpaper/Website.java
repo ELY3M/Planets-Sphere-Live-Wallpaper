@@ -13,6 +13,6 @@ public class Website extends Activity {
         WebView webview = (WebView) findViewById(R.id.webview);
         webview.setVerticalScrollBarEnabled(false);
         webview.getSettings().setJavaScriptEnabled(true);
-        webview.loadUrl("https://github.com/ELY3M");
+        webview.loadUrl("https://github.com/ELY3M/Planets-Sphere-Live-Wallpaper");
     }
 }

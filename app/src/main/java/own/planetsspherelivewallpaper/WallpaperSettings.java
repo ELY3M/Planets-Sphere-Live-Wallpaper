@@ -102,37 +102,37 @@ public class WallpaperSettings extends PreferenceActivity implements OnSharedPre
         }
 
         if (myscore != null) {
-            score = Integer.parseInt(myscore);
+            this.score = Integer.parseInt(myscore);
         }
         IndividualWallpaperService.punktestand = Integer.parseInt(myscore);
-        context = this;
+        this.context = this;
         addPreferencesFromResource(R.xml.settings);
-        set1 = findPreference("set1");
-        set1.setOnPreferenceClickListener(this);
-        set2 = findPreference("set2");
-        set2.setOnPreferenceClickListener(this);
-        set3 = findPreference("set3");
-        set3.setOnPreferenceClickListener(this);
-        set4 = findPreference("set4");
-        set4.setOnPreferenceClickListener(this);
-        set5 = findPreference("set5");
-        set5.setOnPreferenceClickListener(this);
-        set6 = findPreference("set6");
-        set6.setOnPreferenceClickListener(this);
-        set7 = findPreference("set7");
-        set7.setOnPreferenceClickListener(this);
-        set8 = findPreference("set8");
-        set8.setOnPreferenceClickListener(this);
-        set9 = findPreference("set9");
-        set9.setOnPreferenceClickListener(this);
-        set10 = findPreference("set10");
-        set10.setOnPreferenceClickListener(this);
-        set12 = findPreference("set12");
-        set12.setOnPreferenceClickListener(this);
-        mobile = findPreference("mobile");
-        mobile.setOnPreferenceClickListener(this);
-        about = findPreference("about");
-        about.setOnPreferenceClickListener(this);
+        this.set1 = findPreference("set1");
+        this.set1.setOnPreferenceClickListener(this);
+        this.set2 = findPreference("set2");
+        this.set2.setOnPreferenceClickListener(this);
+        this.set3 = findPreference("set3");
+        this.set3.setOnPreferenceClickListener(this);
+        this.set4 = findPreference("set4");
+        this.set4.setOnPreferenceClickListener(this);
+        this.set5 = findPreference("set5");
+        this.set5.setOnPreferenceClickListener(this);
+        this.set6 = findPreference("set6");
+        this.set6.setOnPreferenceClickListener(this);
+        this.set7 = findPreference("set7");
+        this.set7.setOnPreferenceClickListener(this);
+        this.set8 = findPreference("set8");
+        this.set8.setOnPreferenceClickListener(this);
+        this.set9 = findPreference("set9");
+        this.set9.setOnPreferenceClickListener(this);
+        this.set10 = findPreference("set10");
+        this.set10.setOnPreferenceClickListener(this);
+        this.set12 = findPreference("set12");
+        this.set12.setOnPreferenceClickListener(this);
+        this.mobile = findPreference("mobile");
+        this.mobile.setOnPreferenceClickListener(this);
+        this.about = findPreference("about");
+        this.about.setOnPreferenceClickListener(this);
     }
 
     protected void onStop() {
@@ -144,73 +144,73 @@ public class WallpaperSettings extends PreferenceActivity implements OnSharedPre
 
     public boolean onPreferenceClick(Preference key) {
         Intent intent;
-        if (key == mobile) {
+        if (key == this.mobile) {
             startActivity(new Intent(this, Website.class));
         }
-        if (key == about) {
+        if (key == this.about) {
             showInfo();
         }
-        if (key == set1) {
-            dialog = new DiamondStyle(context, null, 0);
-            dialog.show();
+        if (key == this.set1) {
+            this.dialog = new DiamondStyle(this.context, null, 0);
+            this.dialog.show();
         }
-        if (key == set12) {
-            dialogsecond = new DiamondStyleSecond(context, null, 0);
-            dialogsecond.show();
+        if (key == this.set12) {
+            this.dialogsecond = new DiamondStyleSecond(this.context, null, 0);
+            this.dialogsecond.show();
         }
-        if (key == set2) {
+        if (key == this.set2) {
             startActivity(new Intent(this, Question.class));
         }
-        if (key == set3) {
-            if (score >= 290) {
+        if (key == this.set3) {
+            if (this.score >= 290) {
                 startActivity(new Intent(this, MemoryManager.class));
             } else {
-                defaultd = new DefaultDialog(context);
-                defaultd.show();
+                this.defaultd = new DefaultDialog(this.context);
+                this.defaultd.show();
             }
         }
-        if (key == set4) {
+        if (key == this.set4) {
             startActivity(new Intent(this, List.class));
         }
-        if (key == set5) {
-            if (score >= 390) {
-                new RotatingDialog(context, null, 0).show();
+        if (key == this.set5) {
+            if (this.score >= 390) {
+                new RotatingDialog(this.context, null, 0).show();
             } else {
-                defaultd = new DefaultDialog(context);
-                defaultd.show();
+                this.defaultd = new DefaultDialog(this.context);
+                this.defaultd.show();
             }
         }
-        if (key == set6) {
-            new BackgroundStyleDialog(context, null, 0).show();
+        if (key == this.set6) {
+            new BackgroundStyleDialog(this.context, null, 0).show();
         }
-        if (key == set7) {
-            if (score >= 770) {
-                new SpeedDialog(context, null, 0).show();
+        if (key == this.set7) {
+            if (this.score >= 770) {
+                new SpeedDialog(this.context, null, 0).show();
             } else {
-                defaultd = new DefaultDialog(context);
-                defaultd.show();
+                this.defaultd = new DefaultDialog(this.context);
+                this.defaultd.show();
             }
         }
-        if (key == set8) {
-            if (score >= 515) {
-                new SparkleNumberDialog(context, null, 0).show();
+        if (key == this.set8) {
+            if (this.score >= 515) {
+                new SparkleNumberDialog(this.context, null, 0).show();
             } else {
-                defaultd = new DefaultDialog(context);
-                defaultd.show();
+                this.defaultd = new DefaultDialog(this.context);
+                this.defaultd.show();
             }
         }
-        if (key == set9) {
-            new SparkleStyleDialog(context, null, 0).show();
+        if (key == this.set9) {
+            new SparkleStyleDialog(this.context, null, 0).show();
         }
-        if (key == set10) {
-            new FramerateDialog(context, null, 0).show();
+        if (key == this.set10) {
+            new FramerateDialog(this.context, null, 0).show();
         }
         return true;
     }
 
     public void onResume() {
         super.onResume();
-        settings = PreferenceManager.getDefaultSharedPreferences(this);
+        this.settings = PreferenceManager.getDefaultSharedPreferences(this);
     }
 
     private void showInfo() {

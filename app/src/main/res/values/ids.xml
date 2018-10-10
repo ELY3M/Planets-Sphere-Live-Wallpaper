@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item type="id" name="adView">false</item>
     <item type="id" name="defaultd">false</item>
     <item type="id" name="ende">false</item>
     <item type="id" name="ergebnis">false</item>
