@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item type="id" name="defaultd">false</item>
-    <item type="id" name="ende">false</item>
-    <item type="id" name="ergebnis">false</item>
-    <item type="id" name="ergebnismaybe">false</item>
-    <item type="id" name="featuretext">false</item>
-    <item type="id" name="back">false</item>
-    <item type="id" name="TableLayout03">false</item>
-    <item type="id" name="TableRow04">false</item>
-    <item type="id" name="TableRow05">false</item>
-    <item type="id" name="tv1">false</item>
-    <item type="id" name="time">false</item>
-    <item type="id" name="TableRow01">false</item>
-    <item type="id" name="TableRow02">false</item>
-    <item type="id" name="TableRow03">false</item>
-    <item type="id" name="LinearLayout01">false</item>
-    <item type="id" name="level1">false</item>
-    <item type="id" name="level2">false</item>
-    <item type="id" name="level3">false</item>
-    <item type="id" name="ScrollView01">false</item>
-    <item type="id" name="lwpgallery">false</item>
-    <item type="id" name="getquiz">false</item>
-    <item type="id" name="openscore">false</item>
-    <item type="id" name="gotolist">false</item>
-    <item type="id" name="frage">false</item>
-    <item type="id" name="radio1">false</item>
-    <item type="id" name="text1">false</item>
-    <item type="id" name="radio2">false</item>
-    <item type="id" name="text2">false</item>
-    <item type="id" name="radio3">false</item>
-    <item type="id" name="text3">false</item>
-    <item type="id" name="question">false</item>
-    <item type="id" name="symboldialoglayout">false</item>
-    <item type="id" name="symbolradiogroup">false</item>
-    <item type="id" name="symbol_one">false</item>
-    <item type="id" name="symbol_two">false</item>
-    <item type="id" name="symbol_three">false</item>
-    <item type="id" name="symbol_four">false</item>
-    <item type="id" name="symbol_five">false</item>
-    <item type="id" name="symbol_six">false</item>
-    <item type="id" name="webview">false</item>
+    <item type="id" name="defaultd" />
+    <item type="id" name="ende" />
+    <item type="id" name="ergebnis" />
+    <item type="id" name="ergebnismaybe" />
+    <item type="id" name="featuretext" />
+    <item type="id" name="back" />
+    <item type="id" name="TableLayout03" />
+    <item type="id" name="TableRow04" />
+    <item type="id" name="TableRow05" />
+    <item type="id" name="tv1" />
+    <item type="id" name="time" />
+    <item type="id" name="TableRow01" />
+    <item type="id" name="TableRow02" />
+    <item type="id" name="TableRow03" />
+    <item type="id" name="LinearLayout01" />
+    <item type="id" name="level1" />
+    <item type="id" name="level2" />
+    <item type="id" name="level3" />
+    <item type="id" name="ScrollView01" />
+    <item type="id" name="lwpgallery" />
+    <item type="id" name="getquiz" />
+    <item type="id" name="openscore" />
+    <item type="id" name="gotolist" />
+    <item type="id" name="frage" />
+    <item type="id" name="radio1" />
+    <item type="id" name="text1" />
+    <item type="id" name="radio2" />
+    <item type="id" name="text2" />
+    <item type="id" name="radio3" />
+    <item type="id" name="text3" />
+    <item type="id" name="question" />
+    <item type="id" name="symboldialoglayout" />
+    <item type="id" name="symbolradiogroup" />
+    <item type="id" name="symbol_one" />
+    <item type="id" name="symbol_two" />
+    <item type="id" name="symbol_three" />
+    <item type="id" name="symbol_four" />
+    <item type="id" name="symbol_five" />
+    <item type="id" name="symbol_six" />
+    <item type="id" name="webview" />
 </resources>

@@ -1,17 +1,24 @@
 package own.planetsspherelivewallpaper;
 
+import static android.os.Build.VERSION.SDK_INT;
+import static android.provider.Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION;
+
+import static java.lang.System.exit;
+
+
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.text.TextUtils;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -26,12 +33,25 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 
-
 public class OpenActivity extends Activity {
     private int REQUEST_CODE = 1;
     Context context;
     String punktestand = "";
     String TAG = "Planets openactivity";
+
+    void askExternalStorageManager() throws InterruptedException {
+        if(SDK_INT >= 30) {
+            if (Environment.isExternalStorageManager()) {
+                Log.i(TAG, "ExternalStorageManager Perms are already granted :)");
+            } else {
+                Toast.makeText(this, "This app need access to your phone memory or SD Card to make files and write files (/wX/ on your phone memory or sd card)\nThe all file access settings will open. Make sure to toggle it on to enable all files access for this app to function fully.\n You need to restart the app after you enabled the all files access for this app in the settings.\n", Toast.LENGTH_LONG).show();
+                Intent permissionIntent = new Intent(ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
+                startActivity(permissionIntent);
+                Thread.sleep(13000); //sleep for 13 secs and force restart
+                exit(0);
+            }
+        }
+    }
 
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -39,14 +59,32 @@ public class OpenActivity extends Activity {
 
 
         //stupid perm//
-        Dexter.withActivity(this)
-                .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                .withListener(new PermissionListener() {
-                    @Override public void onPermissionGranted(PermissionGrantedResponse response) { Log.i(TAG, "perm granted :)"); }
-                    @Override public void onPermissionDenied(PermissionDeniedResponse response) { Log.i(TAG, "perm denied :("); }
-                    @Override public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) { Log.i(TAG, "asking for perm"); }
-                }).check();
+        if(SDK_INT >= 30) {
+            try {
+                askExternalStorageManager();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            Dexter.withActivity(this)
+                    .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    .withListener(new PermissionListener() {
+                        @Override
+                        public void onPermissionGranted(PermissionGrantedResponse response) {
+                            Log.i(TAG, "perm granted :)");
+                        }
 
+                        @Override
+                        public void onPermissionDenied(PermissionDeniedResponse response) {
+                            Log.i(TAG, "perm denied :(");
+                        }
+
+                        @Override
+                        public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
+                            Log.i(TAG, "asking for perm");
+                        }
+                    }).check();
+        }
 
         ((ImageButton) findViewById(R.id.lwpgallery)).setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
